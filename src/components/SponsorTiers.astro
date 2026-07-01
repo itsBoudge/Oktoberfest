@@ -2,6 +2,7 @@
 const tiers = [
   {
     name: "Oompa",
+    slug: "oompa",
     role: "Stage / Band Sponsor",
     price: "$5,000",
     tickets: 20,
@@ -15,6 +16,7 @@ const tiers = [
   },
   {
     name: "Hops",
+    slug: "hops",
     role: "Cup Sponsor",
     price: "$4,000",
     tickets: 15,
@@ -28,6 +30,7 @@ const tiers = [
   },
   {
     name: "Oats",
+    slug: "oats",
     role: "Ticket Sponsor",
     price: "$3,000",
     tickets: 15,
@@ -40,6 +43,7 @@ const tiers = [
   },
   {
     name: "Gold Stein",
+    slug: "gold",
     role: "Media Sponsor",
     price: "$2,500",
     tickets: 15,
@@ -52,6 +56,7 @@ const tiers = [
   },
   {
     name: "Silver Lederhosen",
+    slug: "silver",
     role: "Sponsor",
     price: "$1,000",
     tickets: 10,
@@ -63,6 +68,7 @@ const tiers = [
   },
   {
     name: "Bronze Bavarian",
+    slug: "bronze",
     role: "Sponsor",
     price: "$500",
     tickets: 10,
@@ -73,6 +79,7 @@ const tiers = [
   },
   {
     name: "Brats",
+    slug: "brats",
     role: "Sponsor",
     price: "$300",
     tickets: 5,
@@ -103,7 +110,7 @@ const tiers = [
             {t.perks.map((p) => <li>{p}</li>)}
           </ul>
           {t.note && <p class="tier-note">{t.note}</p>}
-          <a href="#sponsor-form" class="btn btn-outline tier-cta">Choose {t.name}</a>
+          <a href="#sponsor-form" class="btn btn-outline tier-cta" data-select-level={t.slug}>Choose {t.name}</a>
         </article>
       ))}
     </div>
