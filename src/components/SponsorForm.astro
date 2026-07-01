@@ -1,0 +1,208 @@
+---
+// TODO: swap in your real Formspree form ID (paid plan → file uploads enabled)
+const FORMSPREE_ID = "YOUR_FORM_ID";
+
+const boardMembers = [
+  "Andrew Rodigues", "Bill Clement", "Casey Cole", "Chantel Souza",
+  "Christian Gwozdz-Silveira", "Christopher Resendes", "Craig Boudria",
+  "Craig Correia", "Denise Madeira", "George Faria", "Jay Rocha",
+  "Justin Grolley", "Kenzi Farland", "Marc Frey", "Neil Smola",
+  "Sarah Lamothe", "Sid Banerjee", "Will Silverstein",
+  "Not referred by a board member",
+];
+
+const levels = [
+  "Oompa Sponsor – $5,000",
+  "Hops \"Cup\" Sponsor – $4,000",
+  "Oats Ticket Sponsor – $3,000",
+  "Gold \"Media\" Sponsor – $2,500",
+  "Silver Lederhosen Sponsor – $1,000",
+  "Bronze Bavarian Sponsor – $500",
+  "Brats Sponsor – $300",
+  "Other / not sure yet",
+];
+---
+<section class="sponsor-form section-pad" id="sponsor-form">
+  <div class="wrap form-wrap">
+    <div class="form-intro">
+      <p class="eyebrow">Sponsor Inquiry</p>
+      <h2>Let's put your name on the tent.</h2>
+      <p>
+        Fill this out and it lands straight in our inbox — no PDF, no
+        mailing a check to get the conversation started. We'll follow up
+        to confirm your level and collect payment.
+      </p>
+      <p class="form-note">
+        Checks can still be mailed to SCBA, 725 State Road,
+        Westport, MA 02790. Sponsorship confirmed by 9/1 to guarantee
+        media advertisement inclusion.
+      </p>
+    </div>
+
+    <form
+      class="card-form"
+      action={`https://formspree.io/f/${FORMSPREE_ID}`}
+      method="POST"
+      encType="multipart/form-data"
+    >
+      <input type="hidden" name="_subject" value="NB Oktoberfest 2026 — Sponsor Inquiry" />
+
+      <label>
+        Board member contact (who referred you)
+        <select name="referral" required>
+          {boardMembers.map((m) => <option value={m}>{m}</option>)}
+        </select>
+      </label>
+
+      <div class="field-row">
+        <label>
+          Company name
+          <input type="text" name="company" required />
+        </label>
+        <label>
+          Contact name
+          <input type="text" name="contact_name" required />
+        </label>
+      </div>
+
+      <div class="field-row">
+        <label>
+          Phone
+          <input type="tel" name="phone" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+      </div>
+
+      <label>
+        Address
+        <input type="text" name="address" placeholder="Street address" />
+      </label>
+      <div class="field-row field-row-3">
+        <label>
+          City
+          <input type="text" name="city" />
+        </label>
+        <label>
+          State
+          <input type="text" name="state" />
+        </label>
+        <label>
+          Zip
+          <input type="text" name="zip" />
+        </label>
+      </div>
+
+      <fieldset>
+        <legend>Sponsorship level</legend>
+        {levels.map((level, i) => (
+          <label class="radio-row">
+            <input type="radio" name="level" value={level} required={i === 0} />
+            {level}
+          </label>
+        ))}
+      </fieldset>
+
+      <label>
+        Upload your business logo
+        <input type="file" name="logo" accept="image/*,.pdf,.ai,.eps" />
+      </label>
+
+      <button type="submit" class="btn btn-primary submit-btn">Submit Sponsorship Inquiry</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .form-wrap {
+    display: grid;
+    grid-template-columns: 0.9fr 1.3fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .form-intro p { color: var(--text-muted); }
+  .form-note {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    border-left: 2px solid var(--sun);
+    padding-left: 14px;
+    margin-top: 24px;
+  }
+
+  .card-form {
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .card-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+  }
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .field-row-3 { grid-template-columns: 2fr 1fr 1fr; }
+
+  input, select {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    text-transform: none;
+    letter-spacing: normal;
+    color: var(--text);
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 10px 12px;
+  }
+  input:focus, select:focus { border-color: var(--sun); }
+
+  fieldset {
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 14px 16px 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  legend {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    padding: 0 6px;
+  }
+  .radio-row {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    text-transform: none;
+    letter-spacing: normal;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text);
+    padding: 6px 0;
+  }
+  .radio-row input { width: auto; padding: 0; }
+
+  .submit-btn { justify-content: center; margin-top: 8px; }
+
+  @media (max-width: 860px) {
+    .form-wrap { grid-template-columns: 1fr; }
+    .field-row, .field-row-3 { grid-template-columns: 1fr; }
+  }
+</style>

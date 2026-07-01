@@ -1,0 +1,66 @@
+---
+const stats = [
+  { number: "20", label: "Years running", suffix: "" },
+  { number: "$100K+", label: "Raised in 2025, after expenses", suffix: "" },
+  { number: "1,500+", label: "Attendees last year", suffix: "" },
+  { number: "18", label: "Local youth organizations funded", suffix: "" },
+];
+---
+<section class="impact section-pad" id="impact">
+  <div class="wrap">
+    <p class="eyebrow">Presented by SCBA</p>
+    <h2>Every stein poured funds a scholarship.</h2>
+    <p class="impact-lede">
+      SCBA is a Southcoast nonprofit investing in at-risk youth and education
+      across New Bedford, Fall River, and beyond. NB Oktoberfest is our
+      largest fundraiser of the year — last year's numbers are below, and
+      we're aiming higher for the 20th.
+    </p>
+
+    <div class="stat-grid">
+      {stats.map((s) => (
+        <div class="stat">
+          <span class="stat-number">{s.number}</span>
+          <span class="stat-label">{s.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .impact-lede {
+    max-width: 60ch;
+    color: var(--text-muted);
+    margin-top: 12px;
+  }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-top: 48px;
+  }
+  .stat {
+    background: var(--bg-panel);
+    padding: 32px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: var(--sun);
+  }
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+  }
+  @media (max-width: 780px) {
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

@@ -1,0 +1,88 @@
+---
+// TODO: once Eventbrite is live, set this and flip `ticketsLive` to true.
+const eventbriteUrl = "";
+const ticketsLive = false;
+---
+<section class="tickets section-pad" id="tickets">
+  <div class="wrap tickets-inner">
+    <div class="ticket-stub">
+      <div class="stub-top">
+        <span class="eyebrow">Admit One</span>
+        <h2>Tickets</h2>
+      </div>
+      <div class="stub-details">
+        <div><span>Date</span>Oct 3, 2026</div>
+        <div><span>Time</span>3PM – 12AM</div>
+        <div><span>Venue</span>Pope's Island Marina</div>
+      </div>
+      {ticketsLive ? (
+        <a href={eventbriteUrl} class="btn btn-primary" target="_blank" rel="noopener">
+          Get Tickets on Eventbrite
+        </a>
+      ) : (
+        <div class="tickets-soon">
+          <span class="btn btn-primary btn-disabled" aria-disabled="true">Tickets Coming Soon</span>
+          <p>We'll post the Eventbrite link here as soon as it's live — check back or follow SCBA for the announcement.</p>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .tickets-inner { display: flex; justify-content: center; }
+  .ticket-stub {
+    max-width: 520px;
+    width: 100%;
+    background: var(--bg-panel);
+    border: 1.5px dashed var(--ink);
+    border-radius: var(--radius);
+    padding: 40px;
+    text-align: center;
+    position: relative;
+  }
+  .ticket-stub::before,
+  .ticket-stub::after {
+    content: "";
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background: var(--bg);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .ticket-stub::before { left: -13px; }
+  .ticket-stub::after { right: -13px; }
+
+  .stub-details {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin: 26px 0 30px;
+    flex-wrap: wrap;
+  }
+  .stub-details div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.92rem;
+  }
+  .stub-details span {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+  }
+
+  .btn-disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+  .tickets-soon p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 14px;
+  }
+</style>

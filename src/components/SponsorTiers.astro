@@ -1,0 +1,210 @@
+---
+const tiers = [
+  {
+    name: "Oompa",
+    role: "Stage / Band Sponsor",
+    price: "$5,000",
+    tickets: 20,
+    perks: [
+      "Company banner across the stage as official band sponsor",
+      "Second banner in a strategic tent location",
+      "Name in print, digital & broadcast media",
+      "Logo on event poster & T-shirt",
+    ],
+    featured: true,
+  },
+  {
+    name: "Hops",
+    role: "Cup Sponsor",
+    price: "$4,000",
+    tickets: 15,
+    perks: [
+      "Logo imprinted 1-color on 2,000 event cups*",
+      "Banner in a strategic tent location",
+      "Name in print, digital & broadcast media",
+      "Logo on event poster & T-shirt",
+    ],
+    note: "*Confirm within 8 weeks of the event for cup production time.",
+  },
+  {
+    name: "Oats",
+    role: "Ticket Sponsor",
+    price: "$3,000",
+    tickets: 15,
+    perks: [
+      "Name & logo on the back of every event ticket",
+      "Banner in a strategic tent location",
+      "Name in print, digital & broadcast media",
+      "Logo on event poster & T-shirt",
+    ],
+  },
+  {
+    name: "Gold Stein",
+    role: "Media Sponsor",
+    price: "$2,500",
+    tickets: 15,
+    perks: [
+      '"Special thanks to media sponsor" mention',
+      "Banner in a strategic tent location",
+      "Name in print, digital & broadcast media",
+      "Logo on event poster & T-shirt",
+    ],
+  },
+  {
+    name: "Silver Lederhosen",
+    role: "Sponsor",
+    price: "$1,000",
+    tickets: 10,
+    perks: [
+      "Occasional name mention in media",
+      "Banner in a strategic tent location",
+      "Logo on event poster & T-shirt",
+    ],
+  },
+  {
+    name: "Bronze Bavarian",
+    role: "Sponsor",
+    price: "$500",
+    tickets: 10,
+    perks: [
+      "Occasional name mention in media",
+      "Banner hung in the tent",
+    ],
+  },
+  {
+    name: "Brats",
+    role: "Sponsor",
+    price: "$300",
+    tickets: 5,
+    perks: ["Company banner hung in the tent"],
+  },
+];
+---
+<section class="tiers section-pad" id="sponsors">
+  <div class="wrap">
+    <p class="eyebrow">20th Anniversary Sponsorship</p>
+    <h2>Pick your level, we'll pour the rest.</h2>
+    <p class="tiers-lede">
+      Tiers and pricing carry over from last year. Every level includes
+      tickets, tent presence, and placement on the official event poster
+      and T-shirt.
+    </p>
+
+    <div class="tier-grid">
+      {tiers.map((t) => (
+        <article class:list={["tier-card", { featured: t.featured }]}>
+          <header class="tier-head">
+            <span class="tier-name">{t.name}</span>
+            <span class="tier-role">{t.role}</span>
+          </header>
+          <div class="tier-price">{t.price}</div>
+          <div class="tier-tickets">{t.tickets} tickets</div>
+          <ul class="tier-perks">
+            {t.perks.map((p) => <li>{p}</li>)}
+          </ul>
+          {t.note && <p class="tier-note">{t.note}</p>}
+          <a href="#sponsor-form" class="btn btn-outline tier-cta">Choose {t.name}</a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .tiers-lede {
+    max-width: 60ch;
+    color: var(--text-muted);
+    margin-top: 12px;
+  }
+  .tier-grid {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .tier-card {
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 26px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .tier-card.featured {
+    border-color: var(--sun);
+    box-shadow: 0 0 0 1px var(--sun);
+  }
+  .tier-card.featured::before {
+    content: "Presenting Level";
+    position: absolute;
+    top: -11px;
+    left: 24px;
+    background: var(--sun);
+    color: var(--parchment);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 3px;
+  }
+  .tier-head {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 12px;
+  }
+  .tier-name {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+  }
+  .tier-role {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent-2);
+  }
+  .tier-price {
+    font-family: var(--font-mono);
+    font-size: 1.9rem;
+    color: var(--ink);
+  }
+  .tier-tickets {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .tier-perks {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    flex: 1;
+  }
+  .tier-perks li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    padding-left: 16px;
+    position: relative;
+  }
+  .tier-perks li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--sun);
+  }
+  .tier-note {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin: 0 0 14px;
+  }
+  .tier-cta { width: 100%; justify-content: center; }
+</style>

@@ -1,0 +1,98 @@
+---
+const orgs = [
+  "SCBA UMass Dartmouth Scholarship Fund", "Children's Advocacy Center of Bristol County",
+  "Boys & Girls Clubs of New Bedford & Fall River", "Friendly Sons of St. Patrick",
+  "United Way of Greater New Bedford", "Dennison Memorial Community Center",
+  "STAR Kids Program", "Silvia Elementary School", "Alma del Mar School",
+  "Global Learning Charter Public School", "Community Boating Center of New Bedford",
+  "Friends of Jack Foundation", "Girls on the Run",
+  "Junior Achievement of Southern Massachusetts", "Whaling City Baseball & Track and Field Club",
+  "SEYAA", "ASAP", "Gnome Surf", "New Bedford High School Drama Club",
+  "Whaling City Jr./Sr. High School",
+];
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <p class="eyebrow">Presented by SCBA</p>
+        <h3>Investing in Southcoast youth since 2006.</h3>
+        <p class="footer-address">
+          South Coast Business Alliance<br />
+          151 State Road, Unit 2, Westport, MA 02790
+        </p>
+      </div>
+      <div class="footer-orgs">
+        <p class="orgs-label">Organizations funded by SCBA</p>
+        <ul>
+          {orgs.map((o) => <li>{o}</li>)}
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© {new Date().getFullYear()} South Coast Business Alliance</span>
+      <span>NB Oktoberfest · Pope's Island Marina, New Bedford, MA</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--ink);
+    color: var(--parchment);
+    padding: 72px 0 28px;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(236,225,205,0.18);
+  }
+  .site-footer h3 {
+    color: var(--parchment);
+    font-size: 1.6rem;
+  }
+  .site-footer .eyebrow { color: var(--sun-bright); }
+  .footer-address {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: rgba(236,225,205,0.7);
+    line-height: 1.7;
+    margin-top: 16px;
+  }
+  .orgs-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(236,225,205,0.55);
+    margin-bottom: 14px;
+  }
+  .footer-orgs ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    columns: 2;
+    column-gap: 24px;
+    font-size: 0.85rem;
+    color: rgba(236,225,205,0.85);
+  }
+  .footer-orgs li { break-inside: avoid; padding: 3px 0; }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 24px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: rgba(236,225,205,0.5);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  @media (max-width: 720px) {
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-orgs ul { columns: 1; }
+  }
+</style>

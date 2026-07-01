@@ -1,0 +1,71 @@
+---
+---
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">SCBA</span>
+      <span class="brand-sub">NB Oktoberfest</span>
+    </a>
+    <nav class="nav">
+      <a href="#sponsors">Sponsorship</a>
+      <a href="#tickets">Tickets</a>
+      <a href="#impact">Impact</a>
+      <a href="#sponsor-form" class="btn btn-primary nav-cta">Become a Sponsor</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(236, 225, 205, 0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 14px;
+  }
+  .brand {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .brand-mark {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+  }
+  .brand-sub {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    margin-top: 2px;
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .nav a:not(.btn) {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text-muted);
+  }
+  .nav a:not(.btn):hover { color: var(--sun); }
+  .nav-cta { padding: 10px 18px; }
+
+  @media (max-width: 680px) {
+    .nav a:not(.nav-cta) { display: none; }
+    .nav-cta { padding: 9px 14px; font-size: 0.72rem; }
+  }
+</style>
