@@ -156,6 +156,7 @@ const levels = [
     gap: 56px;
     align-items: start;
   }
+  .form-wrap > * { min-width: 0; }
   .form-intro p { color: var(--text-muted); }
   .form-note {
     font-family: var(--font-mono);
@@ -183,11 +184,13 @@ const levels = [
     text-transform: uppercase;
     letter-spacing: 0.04em;
     color: var(--text-muted);
+    min-width: 0;
   }
   .field-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
+    min-width: 0;
   }
   .field-row-3 { grid-template-columns: 2fr 1fr 1fr; }
 
@@ -201,6 +204,10 @@ const levels = [
     border: 1px solid var(--line);
     border-radius: 3px;
     padding: 10px 12px;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   input:focus, select:focus { border-color: var(--sun); }
 
