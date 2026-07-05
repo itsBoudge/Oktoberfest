@@ -1,0 +1,93 @@
+---
+const supportActs = ["DJ", "Off Kilter", "Morrissey Blvd", "Seven Day Weekend"];
+const headliner = "Quinn Sullivan";
+---
+<section class="bands section-pad" id="lineup">
+  <div class="bands-bg" style="background-image: url('/images/bands/bands-bg.jpg');"></div>
+  <div class="bands-scrim"></div>
+  <div class="wrap bands-content">
+    <p class="eyebrow eyebrow-light">Live On the Main Stage</p>
+    <h2>This Year's Lineup</h2>
+
+    <div class="headliner">
+      <span class="headliner-label">Headliner</span>
+      <span class="headliner-name">{headliner}</span>
+    </div>
+
+    <div class="support-acts">
+      {supportActs.map((band) => <span class="support-act">{band}</span>)}
+    </div>
+
+    <p class="bands-note">Lineup subject to updates as we lock in set times.</p>
+  </div>
+</section>
+
+<style>
+  .bands {
+    position: relative;
+    overflow: hidden;
+    color: var(--parchment);
+    text-align: center;
+  }
+  .bands-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center 30%;
+  }
+  .bands-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(17,20,34,0.88) 0%, rgba(17,20,34,0.82) 60%, rgba(17,20,34,0.92) 100%);
+  }
+  .bands-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .bands h2 { color: var(--parchment); }
+  .eyebrow-light { color: var(--sun-bright); }
+
+  .headliner {
+    margin: 36px 0 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .headliner-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--sun-bright);
+  }
+  .headliner-name {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    color: var(--parchment);
+  }
+
+  .support-acts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+  .support-act {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    padding: 10px 20px;
+    border: 1px solid rgba(236,225,205,0.35);
+    border-radius: 999px;
+    color: var(--parchment);
+  }
+
+  .bands-note {
+    margin-top: 30px;
+    font-size: 0.8rem;
+    color: rgba(236,225,205,0.6);
+  }
+</style>

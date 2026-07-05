@@ -25,31 +25,30 @@ Opens at http://localhost:4321
 3. **Domain** — point wherever you're hosting (Vercel CLI, same as your other
    projects) at the domain you land on.
 
-## About the hero parallax
+## Hero
 
-This is true multi-object parallax, built from the 13 isolated layer
-exports (`public/images/layers/`) — wood background, sun, clouds, ocean,
-lighthouse, boat, birds, mermaid, keg, stein-and-barley, the "20 Years of
-Cheers" ribbon, the SCBA badge, and the Oktoberfest wordmark lockup. Each
-one is independently positioned and scrolls at its own `data-speed` in
-`Hero.astro` — background elements barely move, foreground elements
-(mermaid, keg) drift fastest, giving real depth instead of flat strips.
+Scaled back from the earlier layered parallax to a simple static hero:
+`public/images/hero/desktop-hero.jpg` on screens >720px, `mobile-hero.jpg`
+below that, swapped via a `<picture>` element in `Hero.astro`. No JS, no
+scroll listeners.
 
-Positioning is done with percentage `top/left/right/bottom` + `max-width`,
-so it holds together across desktop widths but isn't pixel-perfect at
-every viewport — if something looks off at your actual screen size, the
-values to nudge are right at the top of each `.layer-*` rule in
-`Hero.astro`.
+Venue/date/CTAs live in their own dark section right below the hero
+(`EventBar.astro`), not overlaid on the photo — includes the Oktoberfest
+wordmark lockup (`public/images/brand/oktoberfest-logo.webp`).
 
-Mobile (≤720px) always shows the flat `full-poster.jpg` with no parallax,
-per your call to keep mobile simple.
+## Bands / lineup
+
+`Bands.astro` — background image at `public/images/bands/bands-bg.jpg`,
+headliner called out separately from the support acts. Update the
+`supportActs` array and `headliner` const at the top of that file as the
+lineup firms up.
 
 ## Content that's carried over as placeholders
 
 - **Sponsorship tiers/pricing** — same 7 levels as 2025, confirmed current.
 - **Impact stats** ($100K+ raised, 1,500+ attendees, 18 orgs) — 2025 numbers,
   reused until you send updated ones.
-- **Board member referral list** — same 18 names from the 2025 Jotform.
+- **Board member referral list** — confirmed current names.
 
 ## Fonts
 

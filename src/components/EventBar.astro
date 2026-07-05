@@ -1,0 +1,62 @@
+---
+---
+<section class="event-bar">
+  <div class="wrap event-bar-inner">
+    <img
+      src="/images/brand/oktoberfest-logo.webp"
+      alt="New Bedford Oktoberfest, 20th anniversary, 2006 to 2026, celebrating 20 years"
+      class="event-logo"
+    />
+    <p class="eyebrow">Pope's Island Marina · New Bedford, MA</p>
+    <p class="event-date">Saturday, October 3rd, 2026 · 3PM&nbsp;&ndash;&nbsp;12AM</p>
+    <div class="event-actions">
+      <a href="#sponsor-form" class="btn btn-primary">Become a Sponsor</a>
+      <a href="#tickets" class="btn btn-outline">Get Tickets</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .event-bar {
+    background: var(--ink);
+    padding: 56px 0 60px;
+  }
+  .event-bar-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .event-logo {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  .event-bar .eyebrow {
+    color: var(--sun-bright);
+  }
+  .event-date {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    color: var(--parchment);
+    margin: 10px 0 26px;
+  }
+  .event-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .event-actions .btn-outline {
+    color: var(--parchment);
+    border-color: var(--parchment);
+  }
+  .event-actions .btn-outline:hover { color: var(--ink); background: var(--parchment); }
+
+  @media (max-width: 720px) {
+    .event-bar { padding: 40px 0 44px; }
+    .event-logo { max-width: 300px; }
+  }
+</style>

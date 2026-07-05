@@ -1,296 +1,38 @@
 ---
 ---
 <section class="hero" id="top">
-  <div class="hero-stage" id="hero-stage">
-    <img class="layer layer-wood" data-speed="0.02" src="/images/layers/wood-bg.jpg" alt="" />
-    <img class="layer layer-sun" data-speed="0.06" src="/images/layers/sun.webp" alt="" />
-    <img class="layer layer-clouds-1" data-speed="0.10" src="/images/layers/clouds.webp" alt="" />
-    <img class="layer layer-ocean" data-speed="0.05" src="/images/layers/ocean.webp" alt="" />
-    <img class="layer layer-lighthouse" data-speed="0.14" src="/images/layers/lighthouse.webp" alt="" />
-    <img class="layer layer-boat" data-speed="0.17" src="/images/layers/boat.webp" alt="" />
-    <img class="layer layer-birds" data-speed="0.22" src="/images/layers/birds.webp" alt="" />
-    <img class="layer layer-mermaid" data-speed="0.30" src="/images/layers/mermaid.webp" alt="New Bedford Oktoberfest mermaid mascot" />
-    <img class="layer layer-keg" data-speed="0.36" src="/images/layers/keg.webp" alt="" />
-    <img class="layer layer-stein" data-speed="0.36" src="/images/layers/stein-barley.webp" alt="" />
-    <img class="layer layer-cheers" data-speed="0.24" src="/images/layers/cheers-banner.webp" alt="20 Years of Cheers" />
-    <img class="layer layer-scba" data-speed="0.0" src="/images/layers/scba-logo.webp" alt="SCBA — Investing in our Youth" />
-    <img class="layer layer-logo" data-speed="0.04" src="/images/layers/oktoberfest-logo.webp" alt="New Bedford Oktoberfest, 20th anniversary, 2006 to 2026" />
-
-    <div class="hero-scrim"></div>
-  </div>
-
-  <div class="hero-fallback">
-    <img src="/images/hero/full-poster.jpg" alt="New Bedford Oktoberfest 20th anniversary poster" />
-  </div>
-
-  <div class="hero-copy wrap">
-    <p class="eyebrow">Pope's Island Marina · New Bedford, MA</p>
-    <p class="hero-date">Saturday, October 3rd, 2026 · 3PM&nbsp;&ndash;&nbsp;12AM</p>
-    <div class="hero-actions">
-      <a href="#sponsor-form" class="btn btn-primary">Become a Sponsor</a>
-      <a href="#tickets" class="btn btn-outline">Get Tickets</a>
-    </div>
-  </div>
-
-  <div class="scroll-cue" aria-hidden="true">
-    <span></span>
-  </div>
+  <picture>
+    <source media="(max-width: 720px)" srcset="/images/hero/mobile-hero.jpg" />
+    <img
+      src="/images/hero/desktop-hero.jpg"
+      alt="New Bedford Oktoberfest live band on stage with a packed crowd"
+      class="hero-img"
+    />
+  </picture>
 </section>
 
 <style>
   .hero {
     position: relative;
-    height: 125vh;
-    min-height: 760px;
-    max-height: 1320px;
+    width: 100%;
     overflow: hidden;
-    background: var(--parchment);
+    background: var(--ink);
   }
-
-  .hero-stage {
-    position: absolute;
-    inset: 0;
-  }
-
-  .layer {
-    position: absolute;
-    will-change: transform;
-  }
-
-  /* Base wood panel fill */
-  .layer-wood {
-    inset: 0;
+  .hero-img {
     width: 100%;
-    height: 130%;
-    object-fit: cover;
-    object-position: center top;
-  }
-
-  /* Sun sits behind the mermaid, upper-mid */
-  .layer-sun {
-    top: 12%;
-    left: 50%;
-    height: 32%;
-    width: auto;
-    max-width: 70%;
-    transform: translateX(-50%);
-  }
-
-  .layer-clouds-1 {
-    top: 16%;
-    left: 0;
-    width: 100%;
-    opacity: 0.85;
-  }
-
-  .layer-ocean {
-    bottom: -4%;
-    left: 0;
-    width: 100%;
-  }
-
-  .layer-lighthouse {
-    bottom: 14%;
-    right: 4%;
-    width: 12%;
-    max-width: 190px;
-    min-width: 90px;
-  }
-
-  .layer-boat {
-    bottom: 30%;
-    left: 3%;
-    width: 15%;
-    max-width: 230px;
-    min-width: 110px;
-  }
-
-  .layer-birds {
-    top: 10%;
-    left: 0;
-    width: 100%;
-    opacity: 0.9;
-  }
-
-  .layer-mermaid {
-    top: 34%;
-    left: 50%;
-    height: 42%;
-    width: auto;
-    max-width: 60%;
-    transform: translateX(-50%);
-    filter: drop-shadow(0 18px 30px rgba(17, 20, 34, 0.25));
-  }
-
-  .layer-keg {
-    bottom: 0%;
-    left: 6%;
-    width: 15%;
-    max-width: 200px;
-    min-width: 100px;
-  }
-
-  .layer-stein {
-    bottom: 1%;
-    right: 5%;
-    width: 15%;
-    max-width: 200px;
-    min-width: 100px;
-  }
-
-  .layer-cheers {
-    top: 79%;
-    left: 50%;
-    height: 9%;
-    width: auto;
-    max-width: 55%;
-    transform: translateX(-50%) rotate(-2deg);
-  }
-
-  .layer-scba {
-    top: 4%;
-    left: 4%;
-    width: 9%;
-    max-width: 130px;
-    min-width: 78px;
-  }
-
-  .layer-logo {
-    top: 4%;
-    left: 50%;
-    height: 22%;
-    width: auto;
-    max-width: 68%;
-    transform: translateX(-50%);
-  }
-
-  .hero-scrim {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(17,20,34,0) 55%, rgba(17,20,34,0.55) 100%);
-    pointer-events: none;
-  }
-
-  .hero-fallback { display: none; }
-
-  .hero-copy {
-    position: relative;
-    z-index: 20;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    text-align: center;
-    padding-bottom: 36px;
-    pointer-events: none;
-  }
-  .hero-copy > * { pointer-events: auto; }
-
-  .hero-copy .eyebrow {
-    color: var(--parchment);
-    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
-  }
-  .hero-date {
-    font-family: var(--font-mono);
-    font-size: 0.95rem;
-    letter-spacing: 0.06em;
-    color: var(--parchment);
-    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
-    margin: 10px 0 22px;
-  }
-  .hero-actions {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .hero-actions .btn-outline {
-    color: var(--parchment);
-    border-color: var(--parchment);
-  }
-  .hero-actions .btn-outline:hover { color: var(--ink); background: var(--parchment); }
-
-  .scroll-cue {
-    position: absolute;
-    bottom: 18px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 22px;
-    height: 34px;
-    border: 1.5px solid var(--parchment);
-    border-radius: 12px;
-    z-index: 20;
-  }
-  .scroll-cue span {
-    position: absolute;
-    top: 6px;
-    left: 50%;
-    width: 3px;
-    height: 6px;
-    background: var(--parchment);
-    border-radius: 2px;
-    transform: translateX(-50%);
-    animation: cue 1.6s ease-in-out infinite;
-  }
-  @keyframes cue {
-    0% { opacity: 1; top: 6px; }
-    70% { opacity: 0; top: 16px; }
-    100% { opacity: 0; top: 6px; }
+    display: block;
+    object-fit: cover;
   }
 
-  /* Mobile: skip parallax entirely, show the flat poster */
+  /* Desktop: fixed banner height, photo cropped to fill it */
+  @media (min-width: 721px) {
+    .hero { height: 78vh; min-height: 520px; max-height: 820px; }
+  }
+
+  /* Mobile: no crop, image sets its own height */
   @media (max-width: 720px) {
-    .hero { height: auto; min-height: 0; max-height: none; }
-    .hero-stage { display: none; }
-    .hero-fallback { display: block; position: relative; }
-    .hero-copy {
-      position: absolute;
-      inset: 0;
-      padding-bottom: 40px;
-    }
-    .scroll-cue { display: none; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .layer { transform: translateX(-50%) !important; }
-    .layer-wood, .layer-clouds-1, .layer-ocean, .layer-birds { transform: none !important; }
+    .hero { height: auto; }
+    .hero-img { height: auto; }
   }
 </style>
-
-<script>
-  // Scroll-linked parallax across isolated poster layers.
-  // Each .layer carries data-speed; translateY is applied on top of
-  // whatever base transform the layer already has (centering, rotation)
-  // by reading a CSS custom property rather than clobbering `transform`.
-  const stage = document.getElementById('hero-stage');
-  const layers = stage ? Array.from(stage.querySelectorAll('.layer')) : [];
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // Capture each layer's authored transform so we can compose with it.
-  const baseTransforms = layers.map((el) => getComputedStyle(el).transform);
-
-  let ticking = false;
-  function updateParallax() {
-    ticking = false;
-    if (window.innerWidth <= 720) return;
-    const scrollY = window.scrollY;
-    layers.forEach((layer, i) => {
-      const speed = parseFloat(layer.dataset.speed || '0.1');
-      const offset = scrollY * speed;
-      const base = baseTransforms[i];
-      const composed = base && base !== 'none' ? `${base} translateY(${offset}px)` : `translateY(${offset}px)`;
-      layer.style.transform = composed;
-    });
-  }
-  function onScroll() {
-    if (!ticking) {
-      window.requestAnimationFrame(updateParallax);
-      ticking = true;
-    }
-  }
-  if (!reduceMotion) {
-    window.addEventListener('scroll', onScroll, { passive: true });
-    updateParallax();
-  }
-</script>
