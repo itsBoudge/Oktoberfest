@@ -5,20 +5,29 @@ const headliner = "Quinn Sullivan";
 <section class="bands section-pad" id="lineup">
   <div class="bands-bg" style="background-image: url('/images/bands/bands-bg.jpg');"></div>
   <div class="bands-scrim"></div>
-  <div class="wrap bands-content">
-    <p class="eyebrow eyebrow-light">Live On the Main Stage</p>
-    <h2>This Year's Lineup</h2>
+  <div class="wrap bands-grid">
+    <div class="bands-content">
+      <p class="eyebrow eyebrow-light">Live On the Main Stage</p>
+      <h2>This Year's Lineup</h2>
 
-    <div class="headliner">
-      <span class="headliner-label">Headliner</span>
-      <span class="headliner-name">{headliner}</span>
+      <div class="headliner">
+        <span class="headliner-label">Headliner</span>
+        <span class="headliner-name">{headliner}</span>
+      </div>
+
+      <div class="support-acts">
+        {supportActs.map((band) => <span class="support-act">{band}</span>)}
+      </div>
+
+      <p class="bands-note">Lineup subject to updates as we lock in set times.</p>
     </div>
 
-    <div class="support-acts">
-      {supportActs.map((band) => <span class="support-act">{band}</span>)}
+    <div class="bands-art">
+      <img
+        src="/images/bands/quinn-sullivan.webp"
+        alt="Quinn Sullivan illustrated portrait playing guitar"
+      />
     </div>
-
-    <p class="bands-note">Lineup subject to updates as we lock in set times.</p>
   </div>
 </section>
 
@@ -27,7 +36,6 @@ const headliner = "Quinn Sullivan";
     position: relative;
     overflow: hidden;
     color: var(--parchment);
-    text-align: center;
   }
   .bands-bg {
     position: absolute;
@@ -40,12 +48,16 @@ const headliner = "Quinn Sullivan";
     inset: 0;
     background: linear-gradient(180deg, rgba(17,20,34,0.88) 0%, rgba(17,20,34,0.82) 60%, rgba(17,20,34,0.92) 100%);
   }
-  .bands-content {
+  .bands-grid {
     position: relative;
     z-index: 2;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
     align-items: center;
+  }
+  .bands-content {
+    text-align: left;
   }
   .bands h2 { color: var(--parchment); }
   .eyebrow-light { color: var(--sun-bright); }
@@ -72,7 +84,7 @@ const headliner = "Quinn Sullivan";
   .support-acts {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 14px;
   }
   .support-act {
@@ -89,5 +101,26 @@ const headliner = "Quinn Sullivan";
     margin-top: 30px;
     font-size: 0.8rem;
     color: rgba(236,225,205,0.6);
+  }
+
+  .bands-art {
+    display: flex;
+    justify-content: center;
+  }
+  .bands-art img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+  }
+
+  @media (max-width: 860px) {
+    .bands-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .bands-content { text-align: center; }
+    .support-acts { justify-content: center; }
+    .bands-art { order: -1; }
+    .bands-art img { max-width: 280px; }
   }
 </style>

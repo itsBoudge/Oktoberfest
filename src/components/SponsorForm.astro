@@ -1,6 +1,6 @@
 ---
 // TODO: swap in your real Formspree form ID (paid plan → file uploads enabled)
-const FORMSPREE_ID = "YOUR_FORM_ID";
+const FORMSPREE_ID = "xdarbynk";
 
 const boardMembers = [
   "Andrew Rodigues", "Bill Clement", "Casey Cole", "Chantel Souza",
@@ -45,7 +45,7 @@ const levels = [
       method="POST"
       encType="multipart/form-data"
     >
-      <input type="hidden" name="_subject" value="NB Oktoberfest 2026 — Sponsor Inquiry" />
+      <input type="hidden" name="_subject" value="SCBA Sponsor: {{ company }} — {{ contact_name }} (ref: {{ referral }})" />
 
       <label>
         Board member contact (who referred you)

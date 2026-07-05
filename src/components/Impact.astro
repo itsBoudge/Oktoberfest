@@ -5,6 +5,18 @@ const stats = [
   { number: "1,500+", label: "Attendees last year", suffix: "" },
   { number: "18", label: "Local youth organizations funded", suffix: "" },
 ];
+
+const orgs = [
+  "SCBA UMass Dartmouth Scholarship Fund", "Children's Advocacy Center of Bristol County",
+  "Boys & Girls Clubs of New Bedford & Fall River", "Friendly Sons of St. Patrick",
+  "United Way of Greater New Bedford", "Dennison Memorial Community Center",
+  "STAR Kids Program", "Silvia Elementary School", "Alma del Mar School",
+  "Global Learning Charter Public School", "Community Boating Center of New Bedford",
+  "Friends of Jack Foundation", "Girls on the Run",
+  "Junior Achievement of Southern Massachusetts", "Whaling City Baseball & Track and Field Club",
+  "SEYAA", "ASAP", "Gnome Surf", "New Bedford High School Drama Club",
+  "Whaling City Jr./Sr. High School",
+];
 ---
 <section class="impact section-pad" id="impact">
   <div class="wrap">
@@ -26,6 +38,13 @@ const stats = [
           <span class="stat-label">{s.label}</span>
         </div>
       ))}
+    </div>
+
+    <div class="orgs-block">
+      <p class="orgs-label">Organizations funded by SCBA</p>
+      <ul class="orgs-list">
+        {orgs.map((o) => <li>{o}</li>)}
+      </ul>
     </div>
   </div>
 </section>
@@ -64,5 +83,36 @@ const stats = [
   }
   @media (max-width: 780px) {
     .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .orgs-block {
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+  }
+  .orgs-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+  }
+  .orgs-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    columns: 3;
+    column-gap: 32px;
+    font-size: 0.92rem;
+    color: var(--text);
+  }
+  .orgs-list li {
+    break-inside: avoid;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  @media (max-width: 780px) {
+    .orgs-list { columns: 1; }
   }
 </style>
