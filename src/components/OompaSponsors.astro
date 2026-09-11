@@ -1,0 +1,66 @@
+---
+const sponsors = [
+  { name: "Carefree Homes, Inc.", file: "carefree-homes" },
+  { name: "Claremont Companies", file: "claremont-companies" },
+  { name: "Parallel Products", file: "parallel-products" },
+  { name: "ServedWell Hospitality", file: "servedwell-hospitality" },
+  { name: "Stonegate Mortgage", file: "stonegate" },
+];
+---
+<section class="oompa section-pad">
+  <div class="wrap">
+    <p class="eyebrow">Presenting Level</p>
+    <h2>Thank You, Oompa Sponsors</h2>
+    <p class="oompa-lede">
+      Our top-tier partners put the bands on stage and help make the 20th
+      anniversary celebration possible. Raise a stein to them.
+    </p>
+
+    <div class="oompa-grid">
+      {sponsors.map((s) => (
+        <div class="oompa-logo">
+          <img src={`/images/sponsors/oompa/${s.file}.avif`} alt={s.name} loading="lazy" decoding="async" />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .oompa-lede {
+    max-width: 60ch;
+    color: var(--text-muted);
+    margin-top: 12px;
+  }
+
+  .oompa-grid {
+    margin-top: 44px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+  }
+
+  .oompa-logo {
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .oompa-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+  }
+
+  @media (max-width: 900px) {
+    .oompa-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .oompa-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
