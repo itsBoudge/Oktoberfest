@@ -2,6 +2,7 @@
 const sponsors = [
   { name: "Carefree Homes, Inc.", file: "carefree-homes" },
   { name: "Claremont Companies", file: "claremont-companies" },
+  { name: "Family Heating, Cooling, Electric & Plumbing", file: "family-heating-cooling" },
   { name: "Parallel Products", file: "parallel-products" },
   { name: "ServedWell Hospitality", file: "servedwell-hospitality" },
   { name: "Stonegate Mortgage", file: "stonegate" },
@@ -36,7 +37,7 @@ const sponsors = [
   .oompa-grid {
     margin-top: 44px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
 
@@ -57,9 +58,6 @@ const sponsors = [
     height: auto;
   }
 
-  @media (max-width: 900px) {
-    .oompa-grid { grid-template-columns: repeat(3, 1fr); }
-  }
   @media (max-width: 560px) {
     .oompa-grid { grid-template-columns: repeat(2, 1fr); }
   }
