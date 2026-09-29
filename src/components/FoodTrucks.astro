@@ -1,0 +1,52 @@
+---
+const trucks = ["Fancheesical", "BBQ Mass RI", "Rhode Rage", "The Kitchen Nest"];
+---
+<section class="food section-pad" id="food">
+  <div class="wrap">
+    <p class="eyebrow">On the Grounds</p>
+    <h2>This Year's Food Trucks</h2>
+    <p class="food-lede">
+      Steins in one hand, something off a truck in the other. Here's who's
+      cooking this year.
+    </p>
+
+    <div class="food-grid">
+      {trucks.map((t) => (
+        <div class="food-card">{t}</div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .food-lede {
+    max-width: 60ch;
+    color: var(--text-muted);
+    margin-top: 12px;
+  }
+
+  .food-grid {
+    margin-top: 44px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .food-card {
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 28px 20px;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--ink);
+  }
+
+  @media (max-width: 780px) {
+    .food-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .food-grid { grid-template-columns: 1fr; }
+  }
+</style>
