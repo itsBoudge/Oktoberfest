@@ -1,5 +1,5 @@
 ---
-const trucks = ["Fancheesical", "BBQ Mass RI", "Rhode Rage", "The Kitchen Nest"];
+const trucks = ["Fancheesical", "Rhode Rage", "The Kitchen Nest"];
 ---
 <section class="food section-pad" id="food">
   <div class="wrap">
@@ -28,7 +28,7 @@ const trucks = ["Fancheesical", "BBQ Mass RI", "Rhode Rage", "The Kitchen Nest"]
   .food-grid {
     margin-top: 44px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
 
@@ -43,10 +43,7 @@ const trucks = ["Fancheesical", "BBQ Mass RI", "Rhode Rage", "The Kitchen Nest"]
     color: var(--ink);
   }
 
-  @media (max-width: 780px) {
-    .food-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 480px) {
+  @media (max-width: 640px) {
     .food-grid { grid-template-columns: 1fr; }
   }
 </style>

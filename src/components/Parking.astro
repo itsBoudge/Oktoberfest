@@ -1,0 +1,85 @@
+---
+const info = [
+  {
+    label: "Main Event Parking",
+    text: "Check the map for designated lots at Pope's Island — the red shaded areas are open for parking, just steps from the festival.",
+  },
+  {
+    label: "Shuttle Service",
+    text: "Shuttles run from the Zeiterion Garage and the Elm Street Garage, so you don't have to fight for a spot right at the marina.",
+  },
+  {
+    label: "Safety First",
+    text: "We worked with the New Bedford Police Department on a safe crossing and parking plan for the whole route.",
+  },
+];
+---
+<section class="parking section-pad" id="parking">
+  <div class="wrap parking-grid">
+    <div class="parking-map">
+      <img
+        src="/images/parking/parking-map.avif"
+        alt="Map of designated Oktoberfest parking areas near Pope's Island Marina, with shuttle-accessible garages nearby"
+        loading="lazy"
+      />
+    </div>
+    <div class="parking-content">
+      <p class="eyebrow">Getting There</p>
+      <h2>Parking &amp; Shuttles</h2>
+      <div class="parking-info">
+        {info.map((i) => (
+          <div class="parking-item">
+            <span class="parking-label">{i.label}</span>
+            <p>{i.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .parking-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .parking-map img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+  }
+
+  .parking-info {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .parking-item {
+    padding-left: 18px;
+    border-left: 2px solid var(--sun);
+  }
+  .parking-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent-2);
+    margin-bottom: 4px;
+  }
+  .parking-item p {
+    margin: 0;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 860px) {
+    .parking-grid { grid-template-columns: 1fr; }
+    .parking-map { order: -1; }
+  }
+</style>
