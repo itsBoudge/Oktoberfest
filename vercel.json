@@ -1,0 +1,10 @@
+{
+  "headers": [
+    {
+      "source": "/sponsor-letters/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    }
+  ]
+}
